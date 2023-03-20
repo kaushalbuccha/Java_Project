@@ -1,7 +1,25 @@
 import java.util.Scanner;
+class Passenger{
+    static int x;
+    String name;
+    int age;
+    long con;
+    String start;
+    String end;
+    int seat;
 
+    Passenger(String s,int a,long c,String st,String e){
+        name = s;
+        age = a;
+        con = c;
+        start = st;
+        end = e;
+        seat = ++x;
+    }
+}
 public class BusManagementSystem {
     public static void main(String[] args) {
+        static ArrayList<Passenger> arr = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
         int a;
