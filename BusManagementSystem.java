@@ -1,6 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 class Passenger{
-    static int x;
     String name;
     int age;
     long con;
@@ -14,12 +14,22 @@ class Passenger{
         con = c;
         start = st;
         end = e;
-        seat = ++x;
+        seat = x;
     }
 }
 public class BusManagementSystem {
+    static ArrayList<Passenger> arr = new ArrayList<>();
+    static int vacantSeat(){
+        if(arr.size() == 0){
+            return 0;
+        }
+        for(int i = 0; i < arr.size(); i++){
+            if(arr.get(i).seat != (i+1))
+                return i;
+        }
+        return -1;
+    }
     public static void main(String[] args) {
-        static ArrayList<Passenger> arr = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
         int a;
