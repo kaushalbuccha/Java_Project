@@ -28,7 +28,37 @@ public class BusManagementSystem {
                 return i;
         }
         return -1;
-    }
+ }
+static void booking(){
+ Scanner sc = new Scanner(System.in);
+
+ System.out.println("Enter name");
+ String s = sc.nextLine();
+ System.out.println("Enter age");
+ int a = sc.nextInt();
+ System.out.println("Enter contact number");
+ long c = sc.nextLong();
+ sc.nextLine();
+ System.out.println("Enter starting point");
+ String st = sc.next();
+ System.out.println("Enter destination");
+ String e = sc.next();
+ int x = vacantSeat(); // This functions returns the vacant seat in case of seat is vacant by cancelling
+
+ if(x == -1)
+ x = arr.size();
+ if(arr.size() < 40)
+ arr.add(x,new Passenger(s , a , c , st , e, (x+1)));
+ else
+ System.out.println("No more seats available");
+
+ System.out.println();
+ System.out.println("|-------------------|");
+ System.out.println(" Ticket Booked ");
+ System.out.println(" Seat number : "+(x+1));
+ System.out.println("|-------------------|");
+ System.out.println();
+ }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
