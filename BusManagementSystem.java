@@ -59,6 +59,30 @@ static void booking(){
  System.out.println("|-------------------|");
  System.out.println();
  }
+    static void cancel(){
+        Scanner sc = new Scanner(System.in);
+        if(arr.size() >= 1){
+            System.out.println("Enter seat number");
+            int st = sc.nextInt();
+            for (Passenger p : arr) {
+                if(p.seat == st){
+                    arr.remove(p);
+                }
+            }
+            System.out.println();
+            System.out.println("|-------------------|");
+            System.out.println("   Ticket Cancelled ");
+            System.out.println("|-------------------|");
+            System.out.println();
+        }
+        else{
+            System.out.println();
+            System.out.println("No passenger available");
+            System.out.println();
+        }
+        
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
