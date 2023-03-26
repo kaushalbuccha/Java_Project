@@ -82,7 +82,25 @@ public class BusManagementSystem {
         }
         
     }
-
+    static void passengerDetail(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter seat number");
+        int st = sc.nextInt();
+        for (Passenger p : arr) {
+            if(p.seat == st){
+                System.out.println("Passeger Details:");
+                System.out.println("Name : "+p.name);
+                System.out.println("Age : "+p.age);
+                System.out.println("Mobile No. : "+p.con);
+                System.out.println("Boarding : "+p.start);
+                System.out.println("Destination : "+p.end);
+                return;
+            }
+        }
+        System.out.println();
+        System.out.println("Seat "+st+" is vacant");
+        System.out.println();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
