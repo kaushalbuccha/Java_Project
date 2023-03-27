@@ -101,6 +101,11 @@ public class BusManagementSystem {
         System.out.println("Seat "+st+" is vacant");
         System.out.println();
     }
+    static void seatAvailblity(){
+        System.out.println();
+        System.out.println("Available seats: "+ (40-arr.size()));
+        System.out.println();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
