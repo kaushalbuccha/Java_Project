@@ -16,9 +16,11 @@ class Passenger{
         seat = x;
     }
 }
-public class BusManagementSystem {
-    static ArrayList<Passenger> arr = new ArrayList<>();
-    static int vacantSeat(){
+
+class Operations{
+	ArrayList<Passenger> arr = new ArrayList<>();
+
+    int vacantSeat(){
         if(arr.size() == 0){
             return 0;
         }
@@ -28,37 +30,39 @@ public class BusManagementSystem {
         }
         return -1;
     }
-    static void booking(){
-         Scanner sc = new Scanner(System.in);
+    void booking(){
+        Scanner sc = new Scanner(System.in);
 
-         System.out.println("Enter name");
-         String s = sc.nextLine();
-         System.out.println("Enter age");
-         int a = sc.nextInt();
-         System.out.println("Enter contact number");
-         long c = sc.nextLong();
-         sc.nextLine();
-         System.out.println("Enter starting point");
-         String st = sc.next();
-         System.out.println("Enter destination");
-         String e = sc.next();
-         int x = vacantSeat(); // This functions returns the vacant seat in case of seat is vacant by cancelling
+        System.out.println("Enter name");
+        String s = sc.nextLine();
+        System.out.println("Enter age");
+        int a = sc.nextInt();
+        System.out.println("Enter contact number");
+        long c = sc.nextLong();
+        sc.nextLine();
+        System.out.println("Enter starting point");
+        String st = sc.next();
+        System.out.println("Enter destination");
+        String e = sc.next();
+        int x = vacantSeat(); // This functions returns the vacant seat in case of seat is vacant by cancelling
 
-         if(x == -1)
-         x = arr.size();
-         if(arr.size() < 40)
-         arr.add(x,new Passenger(s , a , c , st , e, (x+1)));
-         else
-         System.out.println("No more seats available");
+        if(x == -1)
+            x = arr.size();
+        if(arr.size() < 40){
+            arr.add(x,new Passenger(s , a , c , st , e, (x+1)));
+		}
+        else
+            System.out.println("No more seats available");
 
-         System.out.println();
-         System.out.println("|-------------------|");
-         System.out.println(" Ticket Booked ");
-         System.out.println(" Seat number : "+(x+1));
-         System.out.println("|-------------------|");
-         System.out.println();
+        System.out.println();
+        System.out.println("|-------------------|");
+        System.out.println("    Ticket Booked ");
+        System.out.println("    Seat number : "+(x+1));
+        System.out.println("|-------------------|");
+        System.out.println();
     }
-    static void cancel(){
+
+    void cancel(){
         Scanner sc = new Scanner(System.in);
         if(arr.size() >= 1){
             System.out.println("Enter seat number");
@@ -81,18 +85,28 @@ public class BusManagementSystem {
         }
         
     }
-    static void passengerDetail(){
+
+    void seatAvailblity(){
+        System.out.println();
+        System.out.println("Available seats: "+ (40-arr.size()));
+        System.out.println();
+    }
+
+    void passengerDetail(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter seat number");
         int st = sc.nextInt();
         for (Passenger p : arr) {
             if(p.seat == st){
+				System.out.println();
                 System.out.println("Passeger Details:");
                 System.out.println("Name : "+p.name);
                 System.out.println("Age : "+p.age);
                 System.out.println("Mobile No. : "+p.con);
                 System.out.println("Boarding : "+p.start);
                 System.out.println("Destination : "+p.end);
+				System.out.println();
+				System.out.println();
                 return;
             }
         }
@@ -100,11 +114,9 @@ public class BusManagementSystem {
         System.out.println("Seat "+st+" is vacant");
         System.out.println();
     }
-    static void seatAvailblity(){
-        System.out.println();
-        System.out.println("Available seats: "+ (40-arr.size()));
-        System.out.println();
-    }
+}
+public class BusManagementSystem {
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
