@@ -67,9 +67,9 @@ class Operations{
         if(arr.size() >= 1){
             System.out.println("Enter seat number");
             int st = sc.nextInt();
-            for (Passenger p : arr) {
-                if(p.seat == st){
-                    arr.remove(p);
+            for (int i = 0; i < arr.size();i++) {
+                if(arr.get(i).seat == st){
+                    arr.remove(i);
                 }
             }
             System.out.println();
