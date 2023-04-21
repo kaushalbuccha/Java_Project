@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 class Passenger{
     String name;
@@ -19,7 +18,7 @@ class Passenger{
     }
 }
 class Operations{
-	static ArrayList<Passenger> arr = new ArrayList<>();
+    static ArrayList<Passenger> arr = new ArrayList<>();
 
     int vacantSeat(){
         if(arr.size() == 0){
@@ -61,6 +60,7 @@ class Operations{
         System.out.println("    Seat number : "+(x+1));
         System.out.println("|-------------------|");
         System.out.println();
+        sc.close();
     }
 
     void cancel(){
@@ -84,7 +84,7 @@ class Operations{
             System.out.println("No passenger available");
             System.out.println();
         }
-        
+        sc.close();
     }
 
     void seatAvailblity(){
@@ -114,6 +114,7 @@ class Operations{
         System.out.println();
         System.out.println("Seat "+st+" is vacant");
         System.out.println();
+        sc.close();
     }
 }
 public class BusManagementSystem1 {
@@ -151,9 +152,10 @@ public class BusManagementSystem1 {
                     op.passengerDetail();
                     break;
 		default:
-			System.out.println("Invalid Input");
-			System.out.println("Please try again");
+		     System.out.println("Invalid Input");
+		     System.out.println("Please try again");
             }
         }while(a != 0);
+        sc.close();
     }
 }
